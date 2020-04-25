@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.naming.OperationNotSupportedException;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by user on 22.10.2019.
@@ -25,10 +27,12 @@ private  static  final  String BASE_URL=" https://cloud.google.com/";
         driver.get(BASE_URL);
 
     }
-    WebDriverWait wait = new WebDriverWait(driver, 10);
+    WebDriverWait wait = new WebDriverWait(driver, 60);
+    JavascriptExecutor js = (JavascriptExecutor) driver;
 
 
-    @FindBy(xpath = "//input[@placeholder='Результаты поиска']")
+
+    @FindBy(xpath = "//devsite-search//input")
     private WebElement searchButton;
 
 

@@ -5,8 +5,7 @@ import pages.MainPage;
 import pages.PageOfCalculator;
 import pages.PageOfResultsEnterData;
 import pages.PageResultsOfSearch;
-
-
+import util.ParseString;
 
 
 public class CommonSteps {

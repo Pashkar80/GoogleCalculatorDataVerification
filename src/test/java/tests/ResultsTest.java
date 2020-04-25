@@ -8,25 +8,20 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import pages.PageOfCalculator;
+import service.OrderCreator;
 import steps.CommonSteps;
 
 
 public class ResultsTest {
 
-    Order order = new Order("4",
-            "Regular",
-            "n1-standard-8",
-            "2x375 GB",
-            "Frankfurt",
-            "1 Year",
-            "USD 1,082.77");
-
+    Order order= OrderCreator.withDataFromTask();
     private WebDriver driver;
     private String request = "Google Cloud Platform Pricing Calculator";
 
 
     @BeforeTest
     public void initDriver() throws InterruptedException {
+
         driver = LocalDriver.initWebDriver();
         CommonSteps steps = new CommonSteps(driver);
         steps.pageSearching(request);

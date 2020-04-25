@@ -31,8 +31,8 @@ public class PageOfCalculator extends PageObject {
     }
 
     WebDriverWait wait = new WebDriverWait(driver, 30);
-    JavascriptExecutor js = (JavascriptExecutor) driver;
 
+    JavascriptExecutor js = (JavascriptExecutor) driver;
     @FindBy(xpath = "//*[@id='mainForm']//md-input-container/input")
     private WebElement fieldOfInstance;
 
@@ -97,7 +97,7 @@ public class PageOfCalculator extends PageObject {
 
 
     public void setValueOfInstance(String value)  {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait.until(ExpectedConditions.titleIs("Google Cloud Platform Pricing Calculator"));
         driver.switchTo().frame(0);
         driver.switchTo().frame("myFrame");
         wait.until(ExpectedConditions.elementToBeClickable(fieldOfInstance));
